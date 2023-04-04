@@ -1,17 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TriggerDetection : MonoBehaviour
 {
-    public GameObject platform_1;
+    public bool Checkpoint_00=true;
+    public bool Checkpoint_01=false;
 
    void OnTriggerEnter(Collider collision)
    {
-        if(collision.gameObject.name == "TheOrb")
+        if(collision.gameObject.name=="Entity_Player")
         {
-            platform_1.SetActive(true);
-            Debug.Log("Hey Sometihing happened, what is is, we don't know. But it happened!");
+            if(Checkpoint_00==true)
+            {
+                SceneManager.LoadScene("World_Stage_Zero");
+            }
+            if(Checkpoint_01==true)
+            {
+                Debug.Log("This Doesn't Exist.");
+            }
         }
    }
 }
